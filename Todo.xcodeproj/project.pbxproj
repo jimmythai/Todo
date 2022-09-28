@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		ED3C64852881770600D2089B /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64842881770600D2089B /* TodoApp.swift */; };
-		ED3C64872881770600D2089B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64862881770600D2089B /* ContentView.swift */; };
+		ED3C64872881770600D2089B /* TaskListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64862881770600D2089B /* TaskListScreen.swift */; };
 		ED3C64892881770900D2089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3C64882881770900D2089B /* Assets.xcassets */; };
 		ED3C648C2881770900D2089B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3C648B2881770900D2089B /* Preview Assets.xcassets */; };
 		ED3C64962881770900D2089B /* TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64952881770900D2089B /* TodoTests.swift */; };
 		ED3C64A02881770900D2089B /* TodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C649F2881770900D2089B /* TodoUITests.swift */; };
 		ED3C64A22881770900D2089B /* TodoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64A12881770900D2089B /* TodoUITestsLaunchTests.swift */; };
+		ED3C64B12881833C00D2089B /* TaskDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64B02881833C00D2089B /* TaskDetailsScreen.swift */; };
+		ED3C64B32895602F00D2089B /* AddTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64B22895602F00D2089B /* AddTaskScreen.swift */; };
+		ED52479428E4303700B50099 /* TaskDescriptionTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52479328E4303700B50099 /* TaskDescriptionTextFieldView.swift */; };
+		ED52479628E4305B00B50099 /* TaskNameTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52479528E4305B00B50099 /* TaskNameTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		ED3C64812881770600D2089B /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3C64842881770600D2089B /* TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoApp.swift; sourceTree = "<group>"; };
-		ED3C64862881770600D2089B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ED3C64862881770600D2089B /* TaskListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListScreen.swift; sourceTree = "<group>"; };
 		ED3C64882881770900D2089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED3C648B2881770900D2089B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ED3C64912881770900D2089B /* TodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,10 @@
 		ED3C649B2881770900D2089B /* TodoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3C649F2881770900D2089B /* TodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITests.swift; sourceTree = "<group>"; };
 		ED3C64A12881770900D2089B /* TodoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ED3C64B02881833C00D2089B /* TaskDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsScreen.swift; sourceTree = "<group>"; };
+		ED3C64B22895602F00D2089B /* AddTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScreen.swift; sourceTree = "<group>"; };
+		ED52479328E4303700B50099 /* TaskDescriptionTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionTextFieldView.swift; sourceTree = "<group>"; };
+		ED52479528E4305B00B50099 /* TaskNameTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNameTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				ED3C64842881770600D2089B /* TodoApp.swift */,
-				ED3C64862881770600D2089B /* ContentView.swift */,
+				ED3C64862881770600D2089B /* TaskListScreen.swift */,
+				ED3C64B02881833C00D2089B /* TaskDetailsScreen.swift */,
+				ED3C64B22895602F00D2089B /* AddTaskScreen.swift */,
+				ED52479228E4301500B50099 /* Components */,
 				ED3C64882881770900D2089B /* Assets.xcassets */,
 				ED3C648A2881770900D2089B /* Preview Content */,
 			);
@@ -125,6 +136,15 @@
 				ED3C64A12881770900D2089B /* TodoUITestsLaunchTests.swift */,
 			);
 			path = TodoUITests;
+			sourceTree = "<group>";
+		};
+		ED52479228E4301500B50099 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ED52479328E4303700B50099 /* TaskDescriptionTextFieldView.swift */,
+				ED52479528E4305B00B50099 /* TaskNameTextFieldView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED3C64872881770600D2089B /* ContentView.swift in Sources */,
+				ED52479628E4305B00B50099 /* TaskNameTextFieldView.swift in Sources */,
+				ED52479428E4303700B50099 /* TaskDescriptionTextFieldView.swift in Sources */,
+				ED3C64872881770600D2089B /* TaskListScreen.swift in Sources */,
 				ED3C64852881770600D2089B /* TodoApp.swift in Sources */,
+				ED3C64B32895602F00D2089B /* AddTaskScreen.swift in Sources */,
+				ED3C64B12881833C00D2089B /* TaskDetailsScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
