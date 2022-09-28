@@ -21,11 +21,11 @@ struct AddTaskScreen: View {
                 TaskNameTextFieldView(name: $task.name)
                 TaskDescriptionTextFieldView(description: $task.description)
                     .scaledToFit()
-
-                Button {
+                
+                Button(action:  {
                     taskStore.tasks.append(task)
                     dismiss()
-                } label: {
+                }) {
                     HStack {
                         Spacer()
                         Text("Add")

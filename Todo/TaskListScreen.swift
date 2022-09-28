@@ -19,24 +19,23 @@ class Task: Identifiable, ObservableObject {
 }
 
 struct TaskListScreen: View {
-    @State private var isAddTaskScreenPresented = false
     @StateObject var taskStore = TaskStore()
-
+    
     var body: some View {
         NavigationView {
             ZStack {
                 List {
                     ForEach($taskStore.tasks.filter { !$0.isCompleted.wrappedValue }, id: \.id) { $task in
                         HStack {
-                            Button {
+                            Button(action: {
                                 delete(itemBy: task.id) {
                                     task.isCompleted = true
                                 }
-                            } label: {
+                            }) {
                                 Image(systemName: "checkmark.circle")
                             }
                             .buttonStyle(.plain)
-
+                            
                             NavigationLink(task.name) {
                                 TaskDetailsScreen(task: $task, remove: { _ in
                                     delete(itemBy: task.id)
@@ -49,31 +48,7 @@ struct TaskListScreen: View {
                 }
                 .listStyle(.plain)
                 
-                VStack {
-                    Spacer()
-                    
-                    HStack {
-                        Spacer()
-                        
-                        let width: CGFloat = 70
-                        
-                        Button {
-                            isAddTaskScreenPresented = true
-                        } label: {
-                            Image(systemName: "plus")
-                                .font(.system(size: 22).bold())
-                                .frame(width: width, height: width)
-                                .foregroundColor(.white)
-                        }
-                        .sheet(isPresented: $isAddTaskScreenPresented, content: {
-                            AddTaskScreen(taskStore: taskStore)
-                        })
-                        .background(.blue)
-                        .cornerRadius(width / 2)
-                        .padding()
-                        .shadow(color: .black.opacity(0.3), radius: 3, x: 3, y: 3)
-                    }
-                }
+                FloatingButtonView(taskStore: taskStore)
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
             .navigationTitle("Tasks")
@@ -94,5 +69,38 @@ struct TaskListScreen: View {
 struct TaskList_Previews: PreviewProvider {
     static var previews: some View {
         TaskListScreen()
+    }
+}
+
+private struct FloatingButtonView: View {
+    var taskStore: TaskStore
+    @State private var isAddTaskScreenPresented = false
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            HStack {
+                Spacer()
+                
+                let width: CGFloat = 70
+                
+                Button {
+                    isAddTaskScreenPresented = true
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 22).bold())
+                        .frame(width: width, height: width)
+                        .foregroundColor(.white)
+                }
+                .sheet(isPresented: $isAddTaskScreenPresented, content: {
+                    AddTaskScreen(taskStore: taskStore)
+                })
+                .background(.blue)
+                .cornerRadius(width / 2)
+                .padding()
+                .shadow(color: .black.opacity(0.3), radius: 3, x: 3, y: 3)
+            }
+        }
     }
 }
