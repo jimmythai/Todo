@@ -23,7 +23,7 @@ struct AddTaskScreen: View {
                     .scaledToFit()
                 
                 Button(action:  {
-                    taskStore.tasks.append(task)
+                    taskStore.add(task)
                     dismiss()
                 }) {
                     HStack {

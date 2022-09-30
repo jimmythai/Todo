@@ -18,6 +18,8 @@
 		ED3C64B32895602F00D2089B /* AddTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64B22895602F00D2089B /* AddTaskScreen.swift */; };
 		ED52479428E4303700B50099 /* TaskDescriptionTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52479328E4303700B50099 /* TaskDescriptionTextFieldView.swift */; };
 		ED52479628E4305B00B50099 /* TaskNameTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52479528E4305B00B50099 /* TaskNameTextFieldView.swift */; };
+		ED52479928E46A7500B50099 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52479828E46A7500B50099 /* TaskStore.swift */; };
+		ED52479B28E46A8C00B50099 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52479A28E46A8C00B50099 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		ED3C64B22895602F00D2089B /* AddTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScreen.swift; sourceTree = "<group>"; };
 		ED52479328E4303700B50099 /* TaskDescriptionTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionTextFieldView.swift; sourceTree = "<group>"; };
 		ED52479528E4305B00B50099 /* TaskNameTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNameTextFieldView.swift; sourceTree = "<group>"; };
+		ED52479828E46A7500B50099 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
+		ED52479A28E46A8C00B50099 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				ED3C64B02881833C00D2089B /* TaskDetailsScreen.swift */,
 				ED3C64B22895602F00D2089B /* AddTaskScreen.swift */,
 				ED52479228E4301500B50099 /* Components */,
+				ED52479728E46A5A00B50099 /* Model */,
 				ED3C64882881770900D2089B /* Assets.xcassets */,
 				ED3C648A2881770900D2089B /* Preview Content */,
 			);
@@ -145,6 +150,15 @@
 				ED52479528E4305B00B50099 /* TaskNameTextFieldView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		ED52479728E46A5A00B50099 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED52479828E46A7500B50099 /* TaskStore.swift */,
+				ED52479A28E46A8C00B50099 /* Task.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,12 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED52479B28E46A8C00B50099 /* Task.swift in Sources */,
 				ED52479628E4305B00B50099 /* TaskNameTextFieldView.swift in Sources */,
 				ED52479428E4303700B50099 /* TaskDescriptionTextFieldView.swift in Sources */,
 				ED3C64872881770600D2089B /* TaskListScreen.swift in Sources */,
 				ED3C64852881770600D2089B /* TodoApp.swift in Sources */,
 				ED3C64B32895602F00D2089B /* AddTaskScreen.swift in Sources */,
 				ED3C64B12881833C00D2089B /* TaskDetailsScreen.swift in Sources */,
+				ED52479928E46A7500B50099 /* TaskStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

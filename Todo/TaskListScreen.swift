@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-class TaskStore: ObservableObject {
-    @Published var tasks: [Task] = []
-}
-
-class Task: Identifiable, ObservableObject {
-    let id = UUID()
-    @Published var name = ""
-    @Published var description = ""
-    @Published var isCompleted = false
-}
-
 struct TaskListScreen: View {
     @StateObject var taskStore = TaskStore()
     
@@ -25,12 +14,14 @@ struct TaskListScreen: View {
         NavigationView {
             ZStack {
                 List {
-                    ForEach($taskStore.tasks.filter { !$0.isCompleted.wrappedValue }, id: \.id) { $task in
+                    let incompletedTasks = $taskStore.tasks.filter { task in
+                        !task.isCompleted.wrappedValue
+                    }
+                    
+                    ForEach(incompletedTasks, id: \.id) { $task in
                         HStack {
                             Button(action: {
-                                delete(itemBy: task.id) {
-                                    task.isCompleted = true
-                                }
+                                taskStore.complete(taskBy: task.id)
                             }) {
                                 Image(systemName: "checkmark.circle")
                             }
@@ -38,13 +29,13 @@ struct TaskListScreen: View {
                             
                             NavigationLink(task.name) {
                                 TaskDetailsScreen(task: $task, remove: { _ in
-                                    delete(itemBy: task.id)
+                                    taskStore.remove(taskBy: task.id)
                                 })
                             }
                             .buttonStyle(.plain)
                         }
                     }
-                    .onDelete(perform: delete)
+                    .onDelete(perform: taskStore.remove)
                 }
                 .listStyle(.plain)
                 
@@ -54,15 +45,6 @@ struct TaskListScreen: View {
             .navigationTitle("Tasks")
         }
         .navigationViewStyle(.stack)
-    }
-    
-    private func delete(itemAt offsets: IndexSet) {
-        taskStore.tasks.remove(atOffsets: offsets)
-    }
-    
-    private func delete(itemBy id: UUID, completion: (() -> Void)? = nil) {
-        guard let index = taskStore.tasks.firstIndex(where: { $0.id == id }) else { return }
-        taskStore.tasks.remove(at: index)
     }
 }
 
