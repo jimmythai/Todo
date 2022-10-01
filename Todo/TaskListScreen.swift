@@ -14,28 +14,27 @@ struct TaskListScreen: View {
         NavigationView {
             ZStack {
                 List {
-                    let incompletedTasks = $taskStore.tasks.filter { task in
-                        !task.isCompleted.wrappedValue
+                    // - Use core data to save tasks
+                    
+                    Section("Tasks") {
+                        let incompletedTasks = $taskStore.tasks.filter { task in
+                            !task.isCompleted.wrappedValue
+                        }
+                        
+                        ForEach(incompletedTasks, id: \.id) { $task in
+                            TaskItemView(taskStore: taskStore, task: $task)
+                        }
+                        .onDelete(perform: taskStore.remove)
                     }
                     
-                    ForEach(incompletedTasks, id: \.id) { $task in
-                        HStack {
-                            Button(action: {
-                                taskStore.complete(taskBy: task.id)
-                            }) {
-                                Image(systemName: "checkmark.circle")
-                            }
-                            .buttonStyle(.plain)
-                            
-                            NavigationLink(task.name) {
-                                TaskDetailsScreen(task: $task, remove: { _ in
-                                    taskStore.remove(taskBy: task.id)
-                                })
-                            }
-                            .buttonStyle(.plain)
+                    Section("Completed") {
+                        let incompletedTasks = $taskStore.tasks.filter(\.isCompleted.wrappedValue)
+                        
+                        ForEach(incompletedTasks, id: \.id) { $task in
+                            Text(task.name)
                         }
+                        .onDelete(perform: taskStore.remove)
                     }
-                    .onDelete(perform: taskStore.remove)
                 }
                 .listStyle(.plain)
                 
@@ -51,6 +50,29 @@ struct TaskListScreen: View {
 struct TaskList_Previews: PreviewProvider {
     static var previews: some View {
         TaskListScreen()
+    }
+}
+
+private struct TaskItemView: View {
+    var taskStore: TaskStore
+    @Binding var task: Task
+    
+    var body: some View {
+        HStack {
+            Button(action: {
+                taskStore.complete(taskBy: task.id)
+            }) {
+                Image(systemName: "checkmark.circle")
+            }
+            .buttonStyle(.plain)
+            
+            NavigationLink(task.name) {
+                TaskDetailsScreen(task: $task, remove: { _ in
+                    taskStore.remove(taskBy: task.id)
+                })
+            }
+            .buttonStyle(.plain)
+        }
     }
 }
 
