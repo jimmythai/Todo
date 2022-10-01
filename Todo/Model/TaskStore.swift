@@ -13,10 +13,11 @@ class TaskStore: ObservableObject {
     private var bag = [AnyCancellable]()
 
     func add(_ task: Task) {
-        task.objectWillChange.sink {
-            self.objectWillChange.send()
-        }
-        .store(in: &bag)
+        task.objectWillChange
+            .sink { [weak self] in
+                self?.objectWillChange.send()
+            }
+            .store(in: &bag)
 
         tasks.append(task)
     }
