@@ -7,7 +7,14 @@
 
 import Foundation
 
-class Task: Identifiable, ObservableObject {
+protocol TaskEntity {
+    var id: UUID { get }
+    var name: String { get set }
+    var description: String { get set }
+    var isCompleted: Bool { get set }
+}
+
+class Task: TaskEntity, Identifiable, ObservableObject {
     let id = UUID()
     @Published var name = ""
     @Published var description = ""

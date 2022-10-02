@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED23303428E82A45007EABD5 /* Todo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED23303228E82A45007EABD5 /* Todo.xcdatamodeld */; };
+		ED23303628E85345007EABD5 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23303528E85345007EABD5 /* PersistentManager.swift */; };
 		ED3C64852881770600D2089B /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64842881770600D2089B /* TodoApp.swift */; };
 		ED3C64872881770600D2089B /* TaskListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C64862881770600D2089B /* TaskListScreen.swift */; };
 		ED3C64892881770900D2089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3C64882881770900D2089B /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED23303328E82A45007EABD5 /* Tasks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tasks.xcdatamodel; sourceTree = "<group>"; };
+		ED23303528E85345007EABD5 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		ED3C64812881770600D2089B /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3C64842881770600D2089B /* TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoApp.swift; sourceTree = "<group>"; };
 		ED3C64862881770600D2089B /* TaskListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListScreen.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				ED52479228E4301500B50099 /* Components */,
 				ED52479728E46A5A00B50099 /* Model */,
 				ED3C64882881770900D2089B /* Assets.xcassets */,
+				ED23303528E85345007EABD5 /* PersistentManager.swift */,
+				ED23303228E82A45007EABD5 /* Todo.xcdatamodeld */,
 				ED3C648A2881770900D2089B /* Preview Content */,
 			);
 			path = Todo;
@@ -296,6 +302,8 @@
 				ED52479428E4303700B50099 /* TaskDescriptionTextFieldView.swift in Sources */,
 				ED3C64872881770600D2089B /* TaskListScreen.swift in Sources */,
 				ED3C64852881770600D2089B /* TodoApp.swift in Sources */,
+				ED23303428E82A45007EABD5 /* Todo.xcdatamodeld in Sources */,
+				ED23303628E85345007EABD5 /* PersistentManager.swift in Sources */,
 				ED3C64B32895602F00D2089B /* AddTaskScreen.swift in Sources */,
 				ED3C64B12881833C00D2089B /* TaskDetailsScreen.swift in Sources */,
 				ED52479928E46A7500B50099 /* TaskStore.swift in Sources */,
@@ -623,6 +631,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED23303228E82A45007EABD5 /* Todo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED23303328E82A45007EABD5 /* Tasks.xcdatamodel */,
+			);
+			currentVersion = ED23303328E82A45007EABD5 /* Tasks.xcdatamodel */;
+			path = Todo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ED3C64792881770600D2089B /* Project object */;
 }
